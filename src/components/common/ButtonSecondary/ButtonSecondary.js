@@ -2,11 +2,11 @@ import React from 'react'
 import { Text, TouchableOpacity, StyleSheet, Image, Pressable } from 'react-native'
 import { fontFamily } from '../../../styles/fontStyles'
 
-const ButtonSecondary = ({title, link, color, onPress}) => {
+const ButtonSecondary = ({title, link, color, onPress, width, height}) => {
   return (
     <TouchableOpacity onPress={onPress} style={{
-        width: 110,
-        height: 38,
+        width: width ? width : 110,
+        height: height ? height : 38,
         backgroundColor: color ? '#EF4F5F' : '#fff',
         borderRadius: 10,
         flexDirection:'row',

@@ -3,15 +3,21 @@ import { fontFamily } from '../styles/fontStyles';
 import { commonStyles } from '../styles/commonStyles';
 import ButtonPrimary from '../components/common/ButtonPrimary/ButtonPrimary';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useEffect } from 'react';
+import { checkIfUserIsLoggedIn } from '../utils/firebase';
 
 export default function HomeScreen({navigation}) {
+  // useEffect(() => {
+  //   const user = checkIfUserIsLoggedIn();
+  //   console.log(user)
+  // })
   return (
     <SafeAreaView style={commonStyles.container}>
       <Image source={require('../images/homeScreen/background.png')} style={styles.backgroundImage} />
         <Text style={[styles.welcomeText, fontFamily.poppins700]}>Welcome</Text>
         <Text style={styles.loginAsText}>Login As: </Text>
         <ButtonPrimary color title="Customer" link="LoginCustomer" navigation={navigation} />
-        <ButtonPrimary title="Provider" link="/provider/login" />
+        <ButtonPrimary title="Provider" navigation={navigation} link="LoginProvider" />
     </SafeAreaView>
   );
 }

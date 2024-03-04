@@ -3,9 +3,9 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import { fontFamily } from '../../../styles/fontStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const ServiceContainer = ({ title, src, navigation }) => {
+const ServiceContainer = ({ title, src, navigation, service, userData }) => {
   return (
-    <TouchableOpacity style={styles.bgImageContainer} onPress={() => navigation.navigate('MapScreen')}>
+    <TouchableOpacity style={styles.bgImageContainer} onPress={() => navigation.navigate('MapScreen', {navigation: navigation, service: service, userData: userData})}>
     <ImageBackground
       source={src} // Call a function to get the image source
       style={styles.bgImage}
